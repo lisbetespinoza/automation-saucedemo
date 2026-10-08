@@ -32,10 +32,12 @@ def test_login_exitoso():
         #Validacion URL
         assert "/inventory.html" in driver.current_url
         
-        #Validacion texto
+        #Validacion titulo pagina
         logo = driver.find_element(By.CLASS_NAME, "app_logo")
+        print(f"Titulo de página: {(logo.text) }")
         assert logo.text == "Swag Labs"
         
+        #validacion titulo inventario
         titulo = driver.find_element(By.CSS_SELECTOR, "[data-test='title']")
         assert titulo.text == "Products"
     finally:

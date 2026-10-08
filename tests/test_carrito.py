@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-def test_productos():
+def test_carrito():
     driver = webdriver.Chrome()
     
     
@@ -29,22 +29,18 @@ def test_productos():
         
         carrito_compras = driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
         
-        
         lista_carrito_compras = driver.find_elements(By.CLASS_NAME,"inventory_item_name")
+        print(f"Productos añadidos al carrito: {len(lista_carrito_compras)}")
         
-        #print(f"elementos: {len(carrito_compras)}")
-        
-        
+        #validacion producto agregado
         assert len(lista_carrito_compras) > 0
               
         primer_producto = lista_carrito_compras[0]
        
         primer_producto = driver.find_element(By.CLASS_NAME,"inventory_item_name")
         
+        #validacion texto producto agregado
         assert primer_producto.text == "Sauce Labs Backpack" 
-        
-        
-        
         
     finally:
             driver.quit()

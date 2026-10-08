@@ -12,23 +12,23 @@ Proyecto de automatizacion de pruebas realizado con python para el curso de Tale
 ## Instalacion
 Instalar las dependencias:
 
-...python
+``` python
 pip install selenium
-...
+```
 
-...python
+``` python
 pip install pytest
-...
+```
 
-...python
+``` python
 pip install pytest-html
-...
+```
 
 
 ## Ejecutar las pruebas
-...python
+``` python
 pytest
-...
+```
 
 
 ## Casos de Prueba

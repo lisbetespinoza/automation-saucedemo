@@ -20,11 +20,12 @@ def test_catalogo():
         
         boton_login.click()
         
-        #Validacion del titulo
+        #Validacion del titulo pagina
         assert driver.title == "Swag Labs"
         
+        #validacion catalogo de productos
         productos = driver.find_elements(By.CLASS_NAME,"inventory_item")
-        #print(f"elementos: {len(productos)}")
+        print(f"Cantidad de Productos: {len(productos)}")
         assert len(productos) > 0
         
         primer_producto = productos[0]
@@ -32,6 +33,7 @@ def test_catalogo():
         nombre_producto = primer_producto.find_element(By.CLASS_NAME, "inventory_item_name ").text
         precio_producto = primer_producto.find_element(By.CLASS_NAME, "inventory_item_price").text
         
+        #validacion primer producto
         assert nombre_producto == "Sauce Labs Backpack"
         assert precio_producto == "$29.99"
         
