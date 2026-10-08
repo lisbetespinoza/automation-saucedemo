@@ -2,9 +2,15 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 def test_login_exitoso():
     driver = webdriver.Chrome()
     
+    driver.implicitly_wait(10)
+    
+    wait = WebDriverWait(driver,10)
     
     try:
         #Login
@@ -12,7 +18,10 @@ def test_login_exitoso():
         
         usuario = driver.find_element(By.ID,"user-name")
         password = driver.find_element(By.ID,"password")
-        boton_login = driver.find_element(By.ID,"login-button")
+        
+        boton_login = wait.until(EC.element_to_be_clickable((By.ID,"login-button")))
+        
+        #boton_login = driver.find_element(By.ID,"login-button")
         
         #Que quiero hacer con estos elementos
         usuario.send_keys("standard_user")
