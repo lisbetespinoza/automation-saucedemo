@@ -16,20 +16,20 @@ def test_login_exitoso():
         #Login
         driver.get("https://www.saucedemo.com/")
         
-        usuario = wait.until(EC.presence_of_element_located((By.ID,"user-name" )))
+        usuario = wait.until(EC.presence_of_element_located((By.ID,"user-name" ))).send_keys("standard_user")
         #driver.find_element(By.ID,"user-name")
-        password = wait.until(EC.presence_of_element_located((By.ID,"password" )))
+        password = wait.until(EC.presence_of_element_located((By.ID,"password" ))).send_keys("secret_sauce")
         #driver.find_element(By.ID,"password")
         
-        boton_login = wait.until(EC.element_to_be_clickable((By.ID,"login-button")))
+        boton_login = wait.until(EC.element_to_be_clickable((By.ID,"login-button"))).click()
         
         #boton_login = driver.find_element(By.ID,"login-button")
         
         #Que quiero hacer con estos elementos
-        usuario.send_keys("standard_user")
-        password.send_keys("secret_sauce")
+        #usuario.send_keys("standard_user")
+        #password.send_keys("secret_sauce")
         
-        boton_login.click()
+        #boton_login.click()
         
         #Validacion URL
         assert "/inventory.html" in driver.current_url
